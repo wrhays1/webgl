@@ -1,0 +1,75 @@
+
+<!DOCKTYPE HTML>
+<HTML>
+	<HEAD>
+		<script id = "vertex-shader" type = "x-shader/x-vertex">
+		attribute vec4	vPosition;
+		void main()
+		{
+			gl_Position = vPosition;
+		}
+		</script>
+		<script id = "fragment-shader" type ="x-shader/x-fragment">
+		precision highp float;
+		void main()
+		{
+			gl_FragColor = vec4(1.0, 0.0,0.0, 1.0);
+		}
+		</script>
+		<script type = "text/javascript" src = "webgl-utils.js"> </script>
+		<script type = "text/javascript" src = "initShaders.js"> </script>
+		<script type = "text/javascript" src = "MV.js"> </script>
+		<script type = "text/javascript" src = "triangles.js"> </script>
+	
+	</HEAD>
+	<BODY>            
+		<canvas id ="gl-canvas" width = "512" height = "512">
+		Oops ... your browser does not support html5 canvas element!
+		</canvas>
+		<input type = "button" id = "gasket" value = "Display Gasket"/>	
+		<input type = "button" id = "triangle" value = "Tessellated Full Triangle" />
+		<input type = "button" id = "rotate" value = "Rotate" />
+		<input type = "button" id = "Reset" value = "Reset" />
+		
+		<form>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		
+			<label for "tessellation">Tessellation (Number of triangle divisions) </label>
+			<input id = "tessellation" name = "Tessellation" placeholder = "0"> </input>
+			<input type = "button" id = "Submit" value = "Submit Amount of Tessellation" />
+			<br>
+			<br>
+			<label for "rotationDisplay""> Degrees of rotation(Radians)      </label>
+			<input id = "rotationDisplay" name = "Rotation" placeholder = "0"></input>
+			
+			<br/>
+		<br/>
+		<br/>
+		<br/>
+		<div> 
+		      On load defaults are angle = 0 Radians
+			  <br>
+			  and tessellation = 5
+			   <br>
+		      To change the amount of rotation, click the rotate button and it will increment in steps of .05 Radians
+			    <br>
+		      To change the amount of tessellation enter a number and hit the submit button.
+			    <br>
+		      The Tessellation amount can cause problems because it is a recursive call and slows things down of even 
+			  <br>
+			  crash with a high number (maybe Stack overflow)
+			  <br>
+			  
+			  I have limited it to 12. If you enter a number higher than 12 I will always default to 12
+			  
+			 
+			  
+			  
+		</div>
+			
+		</form>
+	</BODY>
+</HTML>
